@@ -21,15 +21,21 @@
                 rgba(238, 130, 238, 0.3));
             font-family: Arial, sans-serif;
         }
-        h1, countdown {
+        h1 {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        countdown {
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>
 <body>
-    <h1>雋曄還有幾天放假 ??</h1><br/>
-    <div class="countdown" id="countdown"></div> <!-- Added div for displaying the countdown -->
+    <div>
+        <h1>雋曄還有幾天放假 ??</h1><br/>
+        <div class="countdown" id="countdown"></div> <!-- Added div for displaying the countdown -->
+    </div>
 
     <script>
         function countdownToTargetDay() {
