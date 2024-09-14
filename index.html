@@ -19,7 +19,17 @@
                 rgba(0, 0, 255, 0.3), 
                 rgba(75, 0, 130, 0.3), 
                 rgba(238, 130, 238, 0.3));
+            background-size: 200% 100%;
+            animation: flow 30s infinite linear;
             font-family: Arial, sans-serif;
+        }
+        @keyframes flow {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
         }
         h1 {
             color: white;
