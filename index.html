@@ -70,10 +70,10 @@
             const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
-            const isHoliday = days < 1.0;
+            const isHoliday = days > (targetIntervalDays - 1);
 
             if (!isHoliday)
-              document.getElementById('countdown').innerText = `距離雋曄放假還有: ${days - 1} 天, ${hours} 小時, ${minutes} 分, ${seconds} 秒`;
+              document.getElementById('countdown').innerText = `距離雋曄放假還有: ${days} 天, ${hours} 小時, ${minutes} 分, ${seconds} 秒`;
             else
               document.getElementById('countdown').innerText = `距離雋曄上班還剩下: ${days} 天, ${hours} 小時, ${minutes} 分, ${seconds} 秒`;
 
