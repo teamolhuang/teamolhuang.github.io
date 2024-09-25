@@ -56,6 +56,8 @@
         <h3><div class="countdown" id="countdown"></div></h3> <!-- Added div for displaying the countdown -->
     </div>
 
+    <iframe width="0" height="0" src="https://www.youtube.com/embed/j9V78UbdzWI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
     <script>
         function countdownToTargetDay() {
             const targetStartDate = new Date('2024-09-15');
@@ -82,11 +84,12 @@
             else {
               document.body.style.backgroundColor = "#000000";
               document.getElementById('countdown').innerText = `放假了啦！但是\n距離雋曄上班還剩下\n${hours} 小時, ${minutes} 分, ${seconds} 秒\n可憐阿`;
-              document.body.append('<div class="player"><iframe width="0" height="0" src="https://www.youtube.com/embed/j9V78UbdzWI" frameborder="0" allowfullscreen></iframe></div>');
             }
 
             // Update countdown every second
             setTimeout(countdownToTargetDay, 1000);
+
+            return isHoliday;
         }
 
         // Initial call to the function
