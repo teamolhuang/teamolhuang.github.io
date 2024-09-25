@@ -48,58 +48,6 @@
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-        #background-audio {
-            display: none;
-        }
-        .disco-ball-container {
-            width: 200px;
-            height: 200px;
-            position: relative;
-            margin: 100px auto;
-        }
-
-        .disco-ball {
-            width: 100px;
-            height: 100px;
-            background-color: #666;
-            border-radius: 50%;
-            position: relative;
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
-            animation: rotate 5s linear infinite;
-            background: #ccc;
-            padding: 10px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .disco-ball::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 10px;
-            height: 20px;
-            background-color: #666;
-        }
-
-        .disco-cell {
-            width: 20px;
-            height: 20px;
-            background-color: #fff;
-            margin: 1px;
-        }
-
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
     </style>
 </head>
 <body>
@@ -109,7 +57,6 @@
     </div>
 
     <script>
-        discoBall = false;
         function countdownToTargetDay() {
             const targetStartDate = new Date('2024-09-15');
             const targetIntervalDays = 5;
@@ -135,21 +82,6 @@
             else {
               document.body.style.backgroundColor = "#000000";
               document.getElementById('countdown').innerText = `放假了啦！但是\n距離雋曄上班還剩下\n${hours} 小時, ${minutes} 分, ${seconds} 秒\n可憐阿`;
-
-              if (!discoBall) {
-              document.addEventListener("DOMContentLoaded", function() {
-                var discoBallHTML = `
-                <div class="disco-ball-container">
-                    <div class="disco-ball">
-                        ${Array(16).fill('<div class="disco-cell"></div>').join('')}
-                    </div>
-                </div>
-                `;
-
-                document.body.insertAdjacentHTML('beforeend', discoBallHTML);
-                discoBall = true;
-              });
-             };
             }
 
             // Update countdown every second
