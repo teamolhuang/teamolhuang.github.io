@@ -15,6 +15,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            text-align: center;
             background: linear-gradient(to right, 
                 rgba(255, 0, 0, 0.3), 
                 rgba(255, 165, 0, 0.3), 
@@ -39,6 +40,10 @@
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
+        h3 {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
         countdown {
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -48,7 +53,7 @@
 <body>
     <div>
         <h1>雋曄還有幾天放假 ??</h1><br/>
-        <div class="countdown" id="countdown"></div> <!-- Added div for displaying the countdown -->
+        <h3><div class="countdown" id="countdown"></div></h3> <!-- Added div for displaying the countdown -->
     </div>
 
     <script>
@@ -75,7 +80,7 @@
             if (!isHoliday)
               document.getElementById('countdown').innerText = `快了，距離雋曄放假還有\n${days} 天, ${hours} 小時, ${minutes} 分, ${seconds} 秒`;
             else {
-              document.body.style.background = "linear-gradient(to right, rgba(0, 0, 0, 0.3));";
+              document.body.style.backgroundColor = "#000000";
               document.getElementById('countdown').innerText = `放假了啦！但是\n距離雋曄上班還剩下\n${hours} 小時, ${minutes} 分, ${seconds} 秒\n可憐阿`;
             }
 
