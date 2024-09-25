@@ -73,10 +73,10 @@
             const isHoliday = days >= (targetIntervalDays - 1);
 
             if (!isHoliday)
-              document.getElementById('countdown').innerText = `距離雋曄放假還有: ${days} 天, ${hours} 小時, ${minutes} 分, ${seconds} 秒`;
+              document.getElementById('countdown').innerText = `快了，距離雋曄放假還有\n${days} 天, ${hours} 小時, ${minutes} 分, ${seconds} 秒`;
             else {
               document.body.style.background = "linear-gradient(to right, rgba(0, 0, 0, 0.3));";
-              document.getElementById('countdown').innerText = `距離雋曄上班還剩下: ${hours} 小時, ${minutes} 分, ${seconds} 秒`;
+              document.getElementById('countdown').innerText = `放假了啦！但是\n距離雋曄上班還剩下\n${hours} 小時, ${minutes} 分, ${seconds} 秒\n可憐阿`;
             }
 
             // Update countdown every second
