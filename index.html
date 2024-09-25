@@ -75,7 +75,7 @@
             if (!isHoliday)
               document.getElementById('countdown').innerText = `距離雋曄放假還有: ${days} 天, ${hours} 小時, ${minutes} 分, ${seconds} 秒`;
             else {
-              document.getElementById(id).style.property = "linear-gradient(to right, rgba(0, 0, 0, 0.3));";
+              document.body.style.property = "linear-gradient(to right, rgba(0, 0, 0, 0.3));";
               document.getElementById('countdown').innerText = `距離雋曄上班還剩下: ${days} 天, ${hours} 小時, ${minutes} 分, ${seconds} 秒`;
             }
 
