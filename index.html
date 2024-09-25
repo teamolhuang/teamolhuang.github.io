@@ -51,6 +51,55 @@
         #background-audio {
             display: none;
         }
+        .disco-ball-container {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            margin: 100px auto;
+        }
+
+        .disco-ball {
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #fff, #ccc, #888, #000);
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: rotate 10s infinite linear;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .disco-ball::before {
+            content: '';
+            width: 10%;
+            height: 10%;
+            background: #333;
+            border-radius: 50%;
+            position: absolute;
+            top: 25%; /* Adjust as needed */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .disco-ball::after {
+            content: '';
+            width: 10px;
+            height: 50px;
+            background: #333;
+            position: absolute;
+            top: -50px; /* Adjust as needed */
+            left: 50%;
+            transform: translateX(-50%);
+        }
     </style>
 </head>
 <body>
@@ -65,6 +114,7 @@
     </audio>
 
     <script>
+        discoBall = false;
         function countdownToTargetDay() {
             const targetStartDate = new Date('2024-09-15');
             const targetIntervalDays = 5;
@@ -90,6 +140,19 @@
             else {
               document.body.style.backgroundColor = "#000000";
               document.getElementById('countdown').innerText = `放假了啦！但是\n距離雋曄上班還剩下\n${hours} 小時, ${minutes} 分, ${seconds} 秒\n可憐阿`;
+
+              if (!discoBall) {
+              document.addEventListener("DOMContentLoaded", function() {
+                var discoBallHTML = `
+                    <div class="disco-ball-container">
+                        <div class="disco-ball"></div>
+                    </div>
+                `;
+
+                document.body.insertAdjacentHTML('beforeend', discoBallHTML);
+                discoBall = true;
+              });
+             };
             }
 
             // Update countdown every second
