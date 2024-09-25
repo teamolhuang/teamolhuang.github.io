@@ -59,14 +59,37 @@
         }
 
         .disco-ball {
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, #fff, #ccc, #888, #000);
+            width: 100px;
+            height: 100px;
+            background-color: #666;
             border-radius: 50%;
+            position: relative;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+            animation: rotate 5s linear infinite;
+            background: #ccc;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .disco-ball::before {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            animation: rotate 10s infinite linear;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 20px;
+            background-color: #666;
+        }
+
+        .disco-cell {
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            margin: 1px;
         }
 
         @keyframes rotate {
@@ -77,29 +100,6 @@
                 transform: rotate(360deg);
             }
         }
-
-        .disco-ball::before {
-            content: '';
-            width: 10%;
-            height: 10%;
-            background: #333;
-            border-radius: 50%;
-            position: absolute;
-            top: 25%; /* Adjust as needed */
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .disco-ball::after {
-            content: '';
-            width: 10px;
-            height: 50px;
-            background: #333;
-            position: absolute;
-            top: -50px; /* Adjust as needed */
-            left: 50%;
-            transform: translateX(-50%);
-        }
     </style>
 </head>
 <body>
@@ -107,11 +107,6 @@
         <h1>雋曄還有幾天放假 ??</h1><br/>
         <h3><div class="countdown" id="countdown"></div></h3> <!-- Added div for displaying the countdown -->
     </div>
-
-    <audio id="background-audio" autoplay loop>
-        <source src="astronomia.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
 
     <script>
         discoBall = false;
@@ -144,9 +139,11 @@
               if (!discoBall) {
               document.addEventListener("DOMContentLoaded", function() {
                 var discoBallHTML = `
-                    <div class="disco-ball-container">
-                        <div class="disco-ball"></div>
+                <div class="disco-ball-container">
+                    <div class="disco-ball">
+                        ${Array(16).fill('<div class="disco-cell"></div>').join('')}
                     </div>
+                </div>
                 `;
 
                 document.body.insertAdjacentHTML('beforeend', discoBallHTML);
